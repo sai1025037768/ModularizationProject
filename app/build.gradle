@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.alibaba.arouter'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.3'
+    namespace 'com.modularization.app'
+    compileSdkVersion 35
     defaultConfig {
         applicationId "com.modularization.app"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -23,13 +22,13 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     lintOptions {
@@ -41,22 +40,19 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.14.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation project(':feature-home')
 
-    implementation project(':biz-module-main')
-    implementation project(':biz-module-newhouse')
-    implementation project(':biz-module-secondhouse')
-    implementation project(':biz-module-renthouse')
+    implementation project(':feature-accommodation')
+    implementation project(':feature-transportation')
+    implementation project(':feature-attraction')
+    implementation project(':core-common')
+    implementation project(':core-storage')
 
-    implementation project(':lib-common')
-    implementation project(':lib-data-local')
-    implementation project(':lib-data-net')
+    implementation project(':core-network')
 
-    implementation rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
-
-    implementation 'com.alibaba:arouter-api:1.5.1'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.5.1'
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
 }

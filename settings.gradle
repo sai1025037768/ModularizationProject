@@ -1,15 +1,18 @@
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
 include ':app',
-        ':biz-module-main',
-        ':biz-module-newhouse',
-        ':biz-module-secondhouse',
-        ':biz-module-renthouse',
+        ':feature-home',
+        ':feature-accommodation',
+        ':feature-transportation',
+        ':feature-attraction',
 
         ':biz-service-base',
-        ':biz-service-newhouse',
-        ':biz-service-secondhouse',
-        ':biz-service-renthouse',
+        ':feature-accommodation-api',
+        ':feature-transportation-api',
+        ':feature-attraction-api',
 
-        ':lib-common',
-        ':lib-data-local',
-        ':lib-data-net',
-        ':lib-open-source'
+        ':core-common',
+        ':core-storage',
+        ':core-network',
+        ':core-dependencies'

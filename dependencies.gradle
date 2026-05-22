@@ -1,15 +1,14 @@
 def retrofitVersion = "2.9.0"
 def okHttpVersion = "3.7.0"
 def stethoVersion = "1.5.0"
-def butterKnifeVersion = "10.2.3"
 
 project.ext {
     android = [
-            compileSdkVersion: 29,
+            compileSdkVersion: 35,
             buildToolsVersion: "29.0.3",
             applicationId    : "com.modularization.app",
             minSdkVersion    : 19,
-            targetSdkVersion : 29,
+            targetSdkVersion : 35,
             versionCode      : 1,
             versionName      : "1.0"
     ]
@@ -27,10 +26,6 @@ project.ext {
             //router
             "router"                      : "",
             "router-compiler"             : "",
-
-            //butterKnife
-            "butterknife"                 : "com.jakewharton:butterknife:${butterKnifeVersion}",
-            "butterknife-compiler"        : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
 
             //facebook
             "stetho"                      : "com.facebook.stetho:stetho:${stethoVersion}",

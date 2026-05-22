@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="TransportationAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/transportation_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/transportation_colorPrimaryDark</item>
+        <item name="colorAccent">@color/transportation_colorAccent</item>
+    </style>
+
+</resources>

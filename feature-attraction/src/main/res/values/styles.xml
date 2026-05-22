@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AttractionAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/attraction_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/attraction_colorPrimaryDark</item>
+        <item name="colorAccent">@color/attraction_colorAccent</item>
+    </style>
+
+</resources>
