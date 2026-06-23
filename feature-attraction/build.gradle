@@ -7,11 +7,11 @@ if (isBuildModule.toBoolean()) {
 
 android {
     namespace 'com.modularization.biz.module.attraction'
-    compileSdkVersion 29
+    compileSdkVersion 37
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 29
+        minSdkVersion 24
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
         resourcePrefix "attraction_"
@@ -50,7 +50,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation project(path: ':core-common')
     implementation project(path: ':core-storage')
 

@@ -9,6 +9,7 @@
         android:theme="@style/AttractionAppTheme">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/attraction_label_home_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

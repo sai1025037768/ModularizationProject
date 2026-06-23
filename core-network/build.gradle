@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.modularization.data.net'
-    compileSdkVersion 35
+    compileSdkVersion 37
 
     buildFeatures {
         buildConfig true
@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         targetSdkVersion 35
-        minSdkVersion 19
+        minSdkVersion 24
         versionCode 1
         versionName "1.0"
 

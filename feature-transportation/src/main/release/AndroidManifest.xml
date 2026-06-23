@@ -6,6 +6,7 @@
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/transportation_label_home_page">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />

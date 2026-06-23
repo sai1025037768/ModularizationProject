@@ -4,10 +4,10 @@ plugins {
 
 android {
     namespace 'com.modularization.biz.service.transportation'
-    compileSdkVersion 35
+    compileSdkVersion 37
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 24
         targetSdkVersion 35
         versionCode 1
         versionName "1.0"
@@ -36,8 +36,8 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.14.0'
 
     implementation 'com.alibaba:arouter-api:1.5.2'
 
