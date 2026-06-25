@@ -8,7 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/TransportationAppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".router.arouter.TransportationArouterActivity"
             android:exported="true"
             android:label="@string/transportation_label_home_page">
             <intent-filter>

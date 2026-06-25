@@ -5,7 +5,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".router.arouter.TransportationArouterActivity"
             android:exported="true"
             android:label="@string/transportation_label_home_page">
             <intent-filter>
@@ -14,7 +14,7 @@
 
                 <action android:name="android.intent.action.VIEW" />
                 <data
-                    android:host="com.modularization.transportation"
+                    android:host="com.travel.transportation"
                     android:scheme="router" />
             </intent-filter>
         </activity>

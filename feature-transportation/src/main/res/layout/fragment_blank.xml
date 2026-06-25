@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_orange_light"
-    tools:context="com.modularization.biz.module.transportation.BlankFragment"
+    tools:context="com.travel.feature.transportation.presentation.TransportationBlankFragment"
     tools:ignore="ResourceName">
 
     <TextView

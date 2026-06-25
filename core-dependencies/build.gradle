@@ -1,46 +1,25 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'travel.android.library'
+}
 
 android {
-    namespace 'com.modularization.opensourcelibrary'
-    compileSdkVersion 37
-
-    defaultConfig {
-        targetSdkVersion 35
-        minSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
+    namespace = 'com.travel.core.dependencies'
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
 
-    api 'io.reactivex:rxandroid:1.2.1'
+    api libs.rxandroid
 
-    api rootProject.ext.dependencies["retrofit"]
-    api rootProject.ext.dependencies["adapter-rxjava"]
+    api libs.retrofit
+    api libs.retrofit.adapter.rxjava
 
-    api rootProject.ext.dependencies["stetho"]
-    api rootProject.ext.dependencies["stetho-okhttp3"]
+    api libs.stetho
+    api libs.stetho.okhttp3
 
-    api rootProject.ext.dependencies["okhttp3"]
-    api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
+    api libs.okhttp3
+    api libs.okhttp3.logging.interceptor
 
-    api rootProject.ext.dependencies["fastjson"]
-    api rootProject.ext.dependencies["ormlite-android"]
+    api libs.fastjson
+    api libs.ormlite.android
 }

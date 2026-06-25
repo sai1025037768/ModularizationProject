@@ -5,7 +5,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".router.arouter.AttractionArouterActivity"
             android:exported="true"
             android:label="@string/attraction_label_home_page">
             <intent-filter>
@@ -14,7 +14,7 @@
 
                 <action android:name="android.intent.action.VIEW" />
                 <data
-                    android:host="com.modularization.attraction"
+                    android:host="com.travel.attraction"
                     android:scheme="router"
                     android:port="6666"
                     android:path="/attraction/home"/>

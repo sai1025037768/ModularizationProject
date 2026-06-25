@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.modularization.biz.module.main.MainActivity">
+    tools:context="com.travel.feature.home.MainActivity">
 
     <include
         layout="@layout/layout_app_bar"

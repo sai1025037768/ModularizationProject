@@ -1,65 +1,28 @@
-if (isBuildModule.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
+plugins {
+    id 'travel.android.feature'
 }
 
 android {
-    namespace 'com.modularization.biz.module.transportation'
-    compileSdkVersion 37
+    namespace = 'com.travel.feature.transportation'
 
     defaultConfig {
-        minSdkVersion 24
-        targetSdkVersion 35
-        versionCode 1
-        versionName "1.0"
-        resourcePrefix "transportation_"
-
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    sourceSets {
-        main {
-            if (isBuildModule.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-            }
-        }
+        resourcePrefix = "transportation_"
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
-    implementation project(path: ':core-common')
-    implementation project(path: ':core-storage')
+    implementation libs.androidx.constraintlayout
+    implementation project(path: ':core-navigation')
+    implementation project(path: ':core-ui')
+    implementation project(path: ':core-model')
 
-    implementation project(path: ':core-network')
-    implementation project(path: ':feature-accommodation-api')
     implementation project(path: ':feature-transportation-api')
-    implementation project(path: ':feature-attraction-api')
 
 
-    implementation 'com.alibaba:arouter-api:1.5.2'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
+    implementation(libs.arouter.api) {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compileOnly libs.android.support.v4
+    annotationProcessor libs.arouter.compiler
 }

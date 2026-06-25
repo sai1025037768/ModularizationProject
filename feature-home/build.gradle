@@ -1,54 +1,30 @@
 plugins {
-    id 'com.android.library'
+    id 'travel.android.library'
 }
 
 android {
-    namespace 'com.modularization.biz.module.main'
-    compileSdkVersion 37
-
-    defaultConfig {
-        minSdkVersion 24
-        targetSdkVersion 35
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
+    namespace = 'com.travel.feature.home'
 }
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'com.google.android.material:material:1.14.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
-    implementation project(':core-common')
-    implementation project(':core-storage')
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
+    implementation project(':core-navigation')
+    implementation project(':core-ui')
+    implementation project(':core-model')
 
     implementation project(':core-network')
+    implementation project(path: ':feature-home-api')
     implementation project(path: ':feature-accommodation-api')
     implementation project(path: ':feature-transportation-api')
     implementation project(path: ':feature-attraction-api')
 
 
-    implementation 'com.alibaba:arouter-api:1.5.2'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
+    implementation(libs.arouter.api) {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compileOnly libs.android.support.v4
+    annotationProcessor libs.arouter.compiler
 }

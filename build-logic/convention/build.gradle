@@ -1,0 +1,32 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+dependencies {
+    implementation libs.android.gradle.plugin
+}
+
+gradlePlugin {
+    plugins {
+        androidApplication {
+            id = 'travel.android.application'
+            implementationClass = 'com.travel.buildlogic.AndroidApplicationConventionPlugin'
+        }
+        androidLibrary {
+            id = 'travel.android.library'
+            implementationClass = 'com.travel.buildlogic.AndroidLibraryConventionPlugin'
+        }
+        androidFeature {
+            id = 'travel.android.feature'
+            implementationClass = 'com.travel.buildlogic.AndroidFeatureConventionPlugin'
+        }
+        javaLibrary {
+            id = 'travel.java.library'
+            implementationClass = 'com.travel.buildlogic.JavaLibraryConventionPlugin'
+        }
+        moduleBoundary {
+            id = 'travel.module-boundary'
+            implementationClass = 'com.travel.buildlogic.ModuleBoundaryConventionPlugin'
+        }
+    }
+}

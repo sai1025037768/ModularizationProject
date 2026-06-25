@@ -1,36 +1,16 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'travel.android.library'
+}
 
 android {
-    namespace 'com.modularization.data.local'
-    compileSdkVersion 37
+    namespace = 'com.travel.core.storage'
 
-    defaultConfig {
-        targetSdkVersion 35
-        minSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    lintOptions {
-        abortOnError false
+    lint {
+        abortOnError = false
     }
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':core-dependencies')
+    api libs.ormlite.android
 }

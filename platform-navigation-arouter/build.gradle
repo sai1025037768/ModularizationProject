@@ -1,0 +1,16 @@
+plugins {
+    id 'travel.android.library'
+}
+
+android {
+    namespace = 'com.travel.platform.navigation.arouter'
+}
+
+dependencies {
+    implementation project(':core-navigation')
+
+    implementation(libs.arouter.api) {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compileOnly libs.android.support.v4
+}

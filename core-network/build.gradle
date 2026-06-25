@@ -1,39 +1,23 @@
 plugins {
-    id 'com.android.library'
+    id 'travel.android.library'
 }
 
 android {
-    namespace 'com.modularization.data.net'
-    compileSdkVersion 37
+    namespace = 'com.travel.core.network'
 
     buildFeatures {
-        buildConfig true
-    }
-
-    defaultConfig {
-        targetSdkVersion 35
-        minSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        buildConfig = true
     }
 }
 
 dependencies {
 
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':core-dependencies')
+    api libs.fastjson
+    api libs.okhttp3
+    api libs.retrofit
+
+    implementation libs.okhttp3.logging.interceptor
+    implementation libs.retrofit.adapter.rxjava
+    implementation libs.stetho.okhttp3
 }

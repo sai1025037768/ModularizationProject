@@ -1,6 +1,27 @@
+pluginManagement {
+    includeBuild 'build-logic'
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
 plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = 'ModularizationProject'
+
 include ':app',
         ':feature-home',
         ':feature-accommodation',
@@ -8,11 +29,16 @@ include ':app',
         ':feature-attraction',
 
         ':biz-service-base',
+        ':feature-home-api',
         ':feature-accommodation-api',
         ':feature-transportation-api',
         ':feature-attraction-api',
 
+        ':platform-navigation-arouter',
+        ':core-navigation',
+        ':core-ui',
+        ':core-model',
+        ':core-device',
         ':core-common',
         ':core-storage',
-        ':core-network',
-        ':core-dependencies'
+        ':core-network'

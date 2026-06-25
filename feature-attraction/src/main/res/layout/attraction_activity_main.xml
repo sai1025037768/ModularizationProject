@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.modularization.biz.module.attraction.MainActivity"
+    tools:context="com.travel.feature.attraction.presentation.AttractionActivity"
     tools:ignore="ResourceName">
 
     <include
@@ -61,7 +61,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginTop="20dp"
-        android:text="> 来自住宿模块的数据"
+        android:text="> 来自景点模块的数据"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.0"

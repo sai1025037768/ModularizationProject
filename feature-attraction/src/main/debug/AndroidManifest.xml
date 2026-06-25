@@ -8,7 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/AttractionAppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".router.arouter.AttractionArouterActivity"
             android:exported="true"
             android:label="@string/attraction_label_home_page">
             <intent-filter>

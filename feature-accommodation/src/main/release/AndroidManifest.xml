@@ -5,7 +5,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".router.arouter.AccommodationArouterActivity"
             android:exported="true"
             android:label="@string/accommodation_label_home_page">
             <intent-filter>
@@ -14,7 +14,7 @@
 
                 <action android:name="android.intent.action.VIEW" />
                 <data
-                    android:host="com.modularization.accommodation"
+                    android:host="com.travel.accommodation"
                     android:scheme="router" />
             </intent-filter>
         </activity>

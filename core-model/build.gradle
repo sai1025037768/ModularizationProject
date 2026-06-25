@@ -1,0 +1,11 @@
+plugins {
+    id 'travel.android.library'
+}
+
+android {
+    namespace = 'com.travel.core.model'
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+}

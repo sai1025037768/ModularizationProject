@@ -1,0 +1,14 @@
+plugins {
+    id 'travel.android.library'
+}
+
+android {
+    namespace = 'com.travel.core.ui'
+}
+
+dependencies {
+    api libs.androidx.appcompat
+    api libs.androidx.recyclerview
+
+    implementation libs.material
+}
