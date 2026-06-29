@@ -8,7 +8,6 @@ import com.travel.feature.transportation.TransportationProviderImpl;
 import com.travel.feature.transportation.api.TransportationData;
 import com.travel.feature.transportation.api.TransportationProvider;
 import com.travel.feature.transportation.api.TransportationRoutes;
-import com.travel.feature.transportation.presentation.TransportationBlankFragment;
 
 @Route(path = TransportationRoutes.SERVICE)
 public class TransportationArouterProvider implements TransportationProvider, IProvider {
@@ -22,10 +21,5 @@ public class TransportationArouterProvider implements TransportationProvider, IP
     @Override
     public TransportationData fetchTransportationData() {
         return delegate.fetchTransportationData();
-    }
-
-    @Override
-    public Object createBlankFragment(String message) {
-        return TransportationBlankFragment.newInstance(message);
     }
 }

@@ -20,7 +20,7 @@ public class AccommodationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accommodation_activity_main);
-        findViewById(R.id.button).setOnClickListener(view -> navigator.openAttractions("112", createAttractionIds()));
+        findViewById(R.id.button).setOnClickListener(view -> navigator.openAttractions(this, "112", createAttractionIds()));
 
         setSupportActionBar(findViewById(R.id.toolbar));
         if (getSupportActionBar() != null) {

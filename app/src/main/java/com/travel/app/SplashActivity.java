@@ -21,7 +21,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Navigation.navigate(RouteRequest.of(HomeRoutes.ACTIVITY_MAIN));
+        Navigation.navigate(RouteRequest.of(HomeRoutes.ACTIVITY_MAIN)
+                .withNavigationContext(this));
         finish();
     }
 }

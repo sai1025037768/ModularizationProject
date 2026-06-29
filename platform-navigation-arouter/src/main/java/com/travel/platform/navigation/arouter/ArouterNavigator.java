@@ -1,10 +1,15 @@
 package com.travel.platform.navigation.arouter;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.os.Parcelable;
 
+import com.alibaba.android.arouter.core.LogisticsCenter;
 import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.facade.enums.RouteType;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.travel.core.navigation.Navigation;
 import com.travel.core.navigation.Navigator;
@@ -18,9 +23,19 @@ import java.util.Map;
  */
 public final class ArouterNavigator implements Navigator {
 
+    private final Context applicationContext;
+
+    private ArouterNavigator(Context applicationContext) {
+        this.applicationContext = applicationContext.getApplicationContext();
+    }
+
     public static void install(Application application) {
+        if ((application.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
         ARouter.init(application);
-        Navigation.setNavigator(new ArouterNavigator());
+        Navigation.setNavigator(new ArouterNavigator(application));
     }
 
     @Override
@@ -31,11 +46,36 @@ public final class ArouterNavigator implements Navigator {
             applyParameter(postcard, entry.getKey(), entry.getValue());
         }
 
-        Object navigationContext = request.navigationContext();
-        Object result = navigationContext instanceof Context
-                ? postcard.navigation((Context) navigationContext)
-                : postcard.navigation();
-        return (T) result;
+        LogisticsCenter.completion(postcard);
+
+        if (postcard.getType() == RouteType.PROVIDER) {
+            return (T) postcard.getProvider();
+        }
+
+        if (postcard.getType() == RouteType.ACTIVITY) {
+            Context context = request.navigationContext() instanceof Context
+                    ? (Context) request.navigationContext()
+                    : applicationContext;
+            startActivity(context, postcard);
+            return null;
+        }
+
+        throw new IllegalArgumentException("Unsupported ARouter route type: " + postcard.getType());
+    }
+
+    private void startActivity(Context context, Postcard postcard) {
+        Intent intent = new Intent(context, postcard.getDestination());
+        intent.putExtras(postcard.getExtras());
+        if (postcard.getFlags() != 0) {
+            intent.setFlags(postcard.getFlags());
+        }
+        if (!(context instanceof Activity)) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        if (postcard.getAction() != null && !postcard.getAction().isEmpty()) {
+            intent.setAction(postcard.getAction());
+        }
+        context.startActivity(intent, postcard.getOptionsBundle());
     }
 
     @SuppressWarnings("unchecked")
